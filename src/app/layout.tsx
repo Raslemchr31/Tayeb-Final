@@ -56,13 +56,6 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@500;700;800&display=swap"
-          rel="stylesheet"
-        />
-
         {/* Facebook Pixel */}
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
@@ -78,15 +71,6 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: 'none' }}
-            src={`https://www.facebook.com/tr?id=${businessInfo.facebookPixelId}&ev=PageView&noscript=1`}
-            alt=""
-          />
-        </noscript>
 
         {/* Structured Data - LocalBusiness */}
         <Script id="structured-data-business" type="application/ld+json">
@@ -109,6 +93,9 @@ export default function RootLayout({
         </Script>
       </head>
       <body className="font-cairo antialiased">
+        <style jsx global>{`
+          @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@500;700;800&display=swap');
+        `}</style>
         {children}
       </body>
     </html>
