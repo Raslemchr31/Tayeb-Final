@@ -26,19 +26,19 @@ export function Features() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature) => {
             const Icon = iconMap[feature.icon];
             return (
-              <Card key={feature.id} className="feature-card border-2 border-transparent hover:border-primary hover:shadow-xl transition-all duration-300">
-                <CardContent className="p-8 text-center space-y-4">
-                  <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 text-primary mb-2">
-                    <Icon className="h-10 w-10" strokeWidth={2} />
+              <Card key={feature.id} className="feature-card border-2 border-transparent hover:border-primary hover:shadow-xl transition-all duration-300 group">
+                <CardContent className="p-6 text-center space-y-3">
+                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-primary text-white mb-1 group-hover:scale-110 transition-transform shadow-lg">
+                    <Icon className="h-8 w-8" strokeWidth={2.5} fill="currentColor" />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-tajawal font-bold text-gray-800">
+                  <h3 className="text-lg md:text-xl font-tajawal font-bold text-gray-800">
                     {feature.titleAr}
                   </h3>
-                  <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                     {feature.descriptionAr}
                   </p>
                 </CardContent>
