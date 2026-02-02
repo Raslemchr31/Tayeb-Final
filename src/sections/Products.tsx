@@ -16,14 +16,14 @@ export function Products() {
 
   return (
     <>
-      <section id="products" className="py-20 bg-white">
+      <section id="products" className="py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-tajawal font-bold text-gray-800 mb-4">
+          <div className="text-center mb-16 space-y-4">
+            <h2 className="text-4xl md:text-5xl font-tajawal font-bold text-gray-800">
               منتجاتنا المميزة
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
               اكتشف مجموعتنا من طاولات التفصيل عالية الجودة
             </p>
           </div>
@@ -58,18 +58,18 @@ export function Products() {
                     )}
                   </div>
                 </CardHeader>
-                <CardContent className="pt-6">
-                  <CardTitle className="mb-3">{product.nameAr}</CardTitle>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">
+                <CardContent className="pt-6 space-y-4">
+                  <CardTitle className="text-xl md:text-2xl">{product.nameAr}</CardTitle>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-2">
                     {product.descriptionShortAr}
                   </p>
 
                   {/* Colors */}
-                  <div className="flex gap-2 mb-4">
+                  <div className="flex gap-2">
                     {product.colors.map((color) => (
                       <div
                         key={color.value}
-                        className="w-6 h-6 rounded-full border-2 border-gray-300"
+                        className="w-7 h-7 rounded-full border-2 border-gray-300 hover:scale-110 transition-transform"
                         style={{ backgroundColor: color.value }}
                         title={color.nameAr}
                       />
@@ -77,8 +77,8 @@ export function Products() {
                   </div>
 
                   {/* Price */}
-                  <div className="flex items-baseline gap-2 mb-4">
-                    <span className="text-3xl font-tajawal font-bold text-primary">
+                  <div className="pt-2 border-t border-gray-100">
+                    <span className="text-3xl md:text-4xl font-tajawal font-bold text-primary">
                       {formatPrice(product.price)}
                     </span>
                   </div>

@@ -37,8 +37,8 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
 
   return (
     <Dialog open onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl p-0">
-        <div className="grid md:grid-cols-2 gap-6 p-6">
+      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0">
+        <div className="grid md:grid-cols-2 gap-8 p-8">
           {/* Left - Image Gallery */}
           <div>
             <div className="relative rounded-xl overflow-hidden mb-4">
@@ -90,35 +90,35 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
           </div>
 
           {/* Right - Product Details */}
-          <div>
-            <DialogHeader>
-              <DialogTitle className="text-3xl mb-2">{product.nameAr}</DialogTitle>
-              <p className="text-gray-600">{product.nameFr}</p>
+          <div className="space-y-6">
+            <DialogHeader className="space-y-3">
+              <DialogTitle className="text-3xl md:text-4xl font-tajawal">{product.nameAr}</DialogTitle>
+              <p className="text-lg text-gray-600">{product.nameFr}</p>
             </DialogHeader>
 
             {/* Price */}
-            <div className="my-6">
-              <span className="text-4xl font-tajawal font-bold text-primary">
+            <div className="py-4 border-y border-gray-200">
+              <span className="text-4xl md:text-5xl font-tajawal font-bold text-primary">
                 {formatPrice(product.price)}
               </span>
             </div>
 
             {/* Description */}
-            <p className="text-gray-700 mb-6 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
               {product.descriptionLongAr}
             </p>
 
             {/* Colors */}
-            <div className="mb-6">
-              <h4 className="font-semibold mb-3">الألوان المتاحة:</h4>
-              <div className="flex gap-3">
+            <div className="space-y-4">
+              <h4 className="text-lg md:text-xl font-tajawal font-semibold">الألوان المتاحة:</h4>
+              <div className="flex gap-4">
                 {product.colors.map((color) => (
                   <button
                     key={color.value}
                     onClick={() => setSelectedColor(color)}
-                    className={`w-12 h-12 rounded-full border-4 transition-all ${
+                    className={`w-14 h-14 md:w-16 md:h-16 rounded-full border-4 transition-all ${
                       selectedColor.value === color.value
-                        ? 'border-primary scale-110'
+                        ? 'border-primary scale-110 shadow-lg'
                         : 'border-gray-300 hover:border-gray-400'
                     }`}
                     style={{ backgroundColor: color.value }}
@@ -126,32 +126,32 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                   />
                 ))}
               </div>
-              <p className="text-sm text-gray-600 mt-2">
-                اللون المختار: {selectedColor.nameAr}
+              <p className="text-base text-gray-600">
+                اللون المختار: <span className="font-semibold">{selectedColor.nameAr}</span>
               </p>
             </div>
 
             {/* Features */}
-            <div className="mb-6">
-              <h4 className="font-semibold mb-3">المميزات:</h4>
-              <ul className="space-y-2">
+            <div className="space-y-4">
+              <h4 className="text-lg md:text-xl font-tajawal font-semibold">المميزات:</h4>
+              <ul className="space-y-3">
                 {product.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <Check className="h-5 w-5 text-green-500 shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{feature}</span>
+                  <li key={idx} className="flex items-start gap-3">
+                    <Check className="h-6 w-6 text-green-500 shrink-0 mt-0.5" strokeWidth={2.5} />
+                    <span className="text-base md:text-lg text-gray-700 leading-relaxed">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Specifications */}
-            <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-              <h4 className="font-semibold mb-3">المواصفات:</h4>
-              <div className="grid grid-cols-2 gap-3 text-sm">
+            <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl space-y-4">
+              <h4 className="text-lg md:text-xl font-tajawal font-semibold">المواصفات:</h4>
+              <div className="grid grid-cols-2 gap-4 text-base">
                 {Object.entries(product.specifications).map(([key, value]) => (
-                  <div key={key}>
-                    <span className="text-gray-600">{key}:</span>
-                    <span className="font-semibold mr-2">{value}</span>
+                  <div key={key} className="space-y-1">
+                    <span className="text-gray-600 block">{key}:</span>
+                    <span className="font-semibold text-gray-800 block">{value}</span>
                   </div>
                 ))}
               </div>

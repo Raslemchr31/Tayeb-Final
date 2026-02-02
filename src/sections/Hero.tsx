@@ -67,17 +67,13 @@ export function Hero() {
             </div>
 
             {/* Title */}
-            <div ref={titleRef} className="mb-6">
-              <h2 className="text-3xl md:text-5xl font-tajawal font-bold text-gray-800 mb-4">
-                <span className="inline-block">طاولات</span>{' '}
-                <span className="inline-block">التفصيل</span>{' '}
-                <span className="inline-block">القابلة</span>{' '}
-                <span className="inline-block text-primary">للطي</span>
+            <div ref={titleRef} className="mb-8 space-y-4">
+              <h2 className="text-3xl md:text-5xl font-tajawal font-bold text-gray-800 leading-tight">
+                طاولات التفصيل القابلة <span className="text-primary">للطي</span>
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed">
-                حلول مبتكرة للخياطة المنزلية والمهنية
-                <br />
-                صنع في الجزائر بجودة عالمية
+              <p className="text-lg md:text-xl text-gray-600 leading-relaxed space-y-2">
+                <span className="block">حلول مبتكرة للخياطة المنزلية والمهنية</span>
+                <span className="block">صنع في الجزائر بجودة عالمية</span>
               </p>
             </div>
 
