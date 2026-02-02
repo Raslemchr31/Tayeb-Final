@@ -14,7 +14,7 @@ const orderSchema = z.object({
   phone: z.string().regex(/^(0|\+213)[0-9]{9}$/, 'رقم هاتف جزائري غير صحيح'),
   state: z.string().min(1, 'يرجى اختيار الولاية'),
   commune: z.string().min(1, 'يرجى اختيار البلدية'),
-  shipments: z.enum(['home', 'bureau'], { required_error: 'يرجى اختيار طريقة التوصيل' }),
+  shipments: z.enum(['home', 'bureau'], { message: 'يرجى اختيار طريقة التوصيل' }),
 });
 
 type OrderFormData = z.infer<typeof orderSchema>;
