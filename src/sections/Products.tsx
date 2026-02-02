@@ -16,10 +16,10 @@ export function Products() {
 
   return (
     <>
-      <section id="products" className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <section id="products" className="py-12 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           {/* Section Header */}
-          <div className="text-center mb-16 space-y-4">
+          <div className="text-center mb-10 space-y-3">
             <h2 className="text-4xl md:text-5xl font-tajawal font-bold text-gray-800">
               منتجاتنا المميزة
             </h2>

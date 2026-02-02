@@ -50,9 +50,9 @@ export function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section id="contact" className="py-12 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-10 space-y-3">
           <h2 className="text-4xl md:text-5xl font-tajawal font-bold text-gray-800">
             تواصل معنا
           </h2>
@@ -61,23 +61,23 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
             return (
               <Card
                 key={index}
-                className="contact-card cursor-pointer hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden group"
+                className="contact-card cursor-pointer hover:shadow-xl transition-all duration-300 border-0 overflow-hidden group"
                 onClick={method.action}
               >
-                <CardContent className="p-8 text-center space-y-4">
-                  <div className={`inline-flex items-center justify-center w-20 h-20 rounded-2xl ${method.bgColor} ${method.iconColor} mb-2 group-hover:scale-110 transition-transform duration-300`}>
-                    <Icon className="h-10 w-10" strokeWidth={2.5} />
+                <CardContent className="p-5 text-center space-y-2">
+                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl ${method.bgColor} ${method.iconColor} mb-1 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="h-7 w-7" strokeWidth={2} />
                   </div>
-                  <h3 className="text-xl md:text-2xl font-tajawal font-bold text-gray-800">
+                  <h3 className="text-lg md:text-xl font-tajawal font-bold text-gray-800">
                     {method.title}
                   </h3>
-                  <p className="text-base md:text-lg text-gray-600 leading-relaxed" dir={method.icon === Phone ? 'ltr' : 'auto'}>
+                  <p className="text-sm md:text-base text-gray-600" dir={method.icon === Phone ? 'ltr' : 'auto'}>
                     {method.value}
                   </p>
                 </CardContent>
@@ -86,14 +86,13 @@ export function Contact() {
           })}
         </div>
 
-        <div className="text-center mt-16">
+        <div className="text-center mt-8">
           <Button
             variant="whatsapp"
             size="lg"
-            className="text-lg px-8 py-6 shadow-lg hover:shadow-xl"
             onClick={() => window.open(businessInfo.whatsapp, '_blank')}
           >
-            <MessageCircle className="h-6 w-6" />
+            <MessageCircle className="h-5 w-5" />
             ابدأ المحادثة على واتساب
           </Button>
         </div>

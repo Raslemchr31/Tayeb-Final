@@ -49,9 +49,9 @@ export function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen bg-gradient-to-b from-skyblue to-white pt-32 pb-20">
+    <section id="hero" className="relative bg-gradient-to-b from-skyblue to-white pt-24 pb-12">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
           {/* Right Side - Content */}
           <div className="text-center lg:text-right">
             {/* Logo */}
@@ -115,19 +115,19 @@ export function Hero() {
           </div>
 
           {/* Left Side - Hero Image */}
-          <div className="relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+          <div className="relative max-w-lg mx-auto lg:mx-0">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl">
               <Image
                 src="/images/home-table-front.jpg"
                 alt="طاولة تفصيل منزلية قابلة للطي"
-                width={800}
-                height={600}
-                className="w-full h-auto"
+                width={600}
+                height={400}
+                className="w-full h-auto max-h-[400px] object-cover"
                 priority
               />
-              <div className="absolute bottom-4 right-4 bg-white/95 backdrop-blur-sm rounded-xl px-6 py-3 shadow-lg">
-                <p className="text-sm text-gray-600">ابتداءً من</p>
-                <p className="text-3xl font-tajawal font-bold text-primary">15,000 دج</p>
+              <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-sm rounded-lg px-4 py-2 shadow-lg">
+                <p className="text-xs text-gray-600">ابتداءً من</p>
+                <p className="text-2xl font-tajawal font-bold text-primary">15,000 دج</p>
               </div>
             </div>
           </div>

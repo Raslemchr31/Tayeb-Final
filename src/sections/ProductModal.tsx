@@ -37,17 +37,17 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
 
   return (
     <Dialog open onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto p-0">
-        <div className="grid md:grid-cols-2 gap-8 p-8">
+      <DialogContent className="max-w-5xl max-h-[85vh] overflow-y-auto p-0">
+        <div className="grid md:grid-cols-2 gap-4 p-4">
           {/* Left - Image Gallery */}
           <div>
-            <div className="relative rounded-xl overflow-hidden mb-4">
+            <div className="relative rounded-lg overflow-hidden mb-3">
               <Image
                 src={product.images[currentImageIndex]}
                 alt={product.nameAr}
-                width={600}
-                height={450}
-                className="w-full h-96 object-cover"
+                width={500}
+                height={350}
+                className="w-full h-64 md:h-72 object-cover"
               />
               {product.images.length > 1 && (
                 <>
@@ -68,21 +68,21 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
             </div>
 
             {/* Thumbnails */}
-            <div className="grid grid-cols-4 gap-2">
+            <div className="grid grid-cols-4 gap-1.5">
               {product.images.map((img, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentImageIndex(idx)}
-                  className={`rounded-lg overflow-hidden border-2 transition-all ${
+                  className={`rounded overflow-hidden border-2 transition-all ${
                     idx === currentImageIndex ? 'border-primary' : 'border-gray-200'
                   }`}
                 >
                   <Image
                     src={img}
                     alt={`${product.nameAr} ${idx + 1}`}
-                    width={100}
-                    height={75}
-                    className="w-full h-20 object-cover"
+                    width={80}
+                    height={60}
+                    className="w-full h-14 object-cover"
                   />
                 </button>
               ))}
@@ -90,35 +90,35 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
           </div>
 
           {/* Right - Product Details */}
-          <div className="space-y-6">
-            <DialogHeader className="space-y-3">
-              <DialogTitle className="text-3xl md:text-4xl font-tajawal">{product.nameAr}</DialogTitle>
-              <p className="text-lg text-gray-600">{product.nameFr}</p>
+          <div className="space-y-3">
+            <DialogHeader className="space-y-1">
+              <DialogTitle className="text-2xl md:text-3xl font-tajawal">{product.nameAr}</DialogTitle>
+              <p className="text-sm text-gray-600">{product.nameFr}</p>
             </DialogHeader>
 
             {/* Price */}
-            <div className="py-4 border-y border-gray-200">
-              <span className="text-4xl md:text-5xl font-tajawal font-bold text-primary">
+            <div className="py-2 border-y border-gray-200">
+              <span className="text-3xl md:text-4xl font-tajawal font-bold text-primary">
                 {formatPrice(product.price)}
               </span>
             </div>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+            <p className="text-sm md:text-base text-gray-700 leading-relaxed">
               {product.descriptionLongAr}
             </p>
 
             {/* Colors */}
-            <div className="space-y-4">
-              <h4 className="text-lg md:text-xl font-tajawal font-semibold">الألوان المتاحة:</h4>
-              <div className="flex gap-4">
+            <div className="space-y-2">
+              <h4 className="text-base md:text-lg font-tajawal font-semibold">الألوان المتاحة:</h4>
+              <div className="flex gap-2">
                 {product.colors.map((color) => (
                   <button
                     key={color.value}
                     onClick={() => setSelectedColor(color)}
-                    className={`w-14 h-14 md:w-16 md:h-16 rounded-full border-4 transition-all ${
+                    className={`w-10 h-10 md:w-12 md:h-12 rounded-full border-3 transition-all ${
                       selectedColor.value === color.value
-                        ? 'border-primary scale-110 shadow-lg'
+                        ? 'border-primary scale-110'
                         : 'border-gray-300 hover:border-gray-400'
                     }`}
                     style={{ backgroundColor: color.value }}
@@ -126,32 +126,32 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                   />
                 ))}
               </div>
-              <p className="text-base text-gray-600">
+              <p className="text-sm text-gray-600">
                 اللون المختار: <span className="font-semibold">{selectedColor.nameAr}</span>
               </p>
             </div>
 
             {/* Features */}
-            <div className="space-y-4">
-              <h4 className="text-lg md:text-xl font-tajawal font-semibold">المميزات:</h4>
-              <ul className="space-y-3">
+            <div className="space-y-2">
+              <h4 className="text-base md:text-lg font-tajawal font-semibold">المميزات:</h4>
+              <ul className="space-y-1.5">
                 {product.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <Check className="h-6 w-6 text-green-500 shrink-0 mt-0.5" strokeWidth={2.5} />
-                    <span className="text-base md:text-lg text-gray-700 leading-relaxed">{feature}</span>
+                  <li key={idx} className="flex items-start gap-2">
+                    <Check className="h-4 w-4 text-green-500 shrink-0 mt-0.5" strokeWidth={2.5} />
+                    <span className="text-sm md:text-base text-gray-700">{feature}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Specifications */}
-            <div className="p-6 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl space-y-4">
-              <h4 className="text-lg md:text-xl font-tajawal font-semibold">المواصفات:</h4>
-              <div className="grid grid-cols-2 gap-4 text-base">
+            <div className="p-3 bg-gray-50 rounded-lg space-y-2">
+              <h4 className="text-base md:text-lg font-tajawal font-semibold">المواصفات:</h4>
+              <div className="grid grid-cols-2 gap-2 text-sm">
                 {Object.entries(product.specifications).map(([key, value]) => (
-                  <div key={key} className="space-y-1">
-                    <span className="text-gray-600 block">{key}:</span>
-                    <span className="font-semibold text-gray-800 block">{value}</span>
+                  <div key={key}>
+                    <span className="text-gray-600">{key}:</span>
+                    <span className="font-semibold text-gray-800 mr-1">{value}</span>
                   </div>
                 ))}
               </div>

@@ -15,9 +15,9 @@ const iconMap: Record<string, any> = {
 
 export function Features() {
   return (
-    <section id="features" className="py-24 bg-gradient-to-b from-gray-50 to-white">
+    <section id="features" className="py-12 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 space-y-4">
+        <div className="text-center mb-10 space-y-3">
           <h2 className="text-4xl md:text-5xl font-tajawal font-bold text-gray-800">
             لماذا تختارنا؟
           </h2>
