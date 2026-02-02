@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -19,6 +19,13 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [selectedColor, setSelectedColor] = useState(product.colors[0]);
   const [showOrderForm, setShowOrderForm] = useState(false);
+  const orderFormRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (showOrderForm && orderFormRef.current) {
+      orderFormRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [showOrderForm]);
 
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % product.images.length);
@@ -160,11 +167,13 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
                 اطلب الآن
               </Button>
             ) : (
-              <OrderForm
-                product={product}
-                selectedColor={selectedColor}
-                onSuccess={onClose}
-              />
+              <div ref={orderFormRef}>
+                <OrderForm
+                  product={product}
+                  selectedColor={selectedColor}
+                  onSuccess={onClose}
+                />
+              </div>
             )}
           </div>
         </div>

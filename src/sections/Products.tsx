@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ShoppingCart, Eye } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -35,6 +35,7 @@ export function Products() {
                 key={product.id}
                 className="product-card group cursor-pointer"
                 style={{ animationDelay: `${index * 0.1}s` }}
+                onClick={() => setSelectedProduct(product)}
               >
                 <CardHeader className="p-0">
                   <div className="relative overflow-hidden rounded-t-2xl">
@@ -85,17 +86,13 @@ export function Products() {
                 <CardFooter className="flex gap-2">
                   <Button
                     className="flex-1"
-                    onClick={() => setSelectedProduct(product)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedProduct(product);
+                    }}
                   >
                     <ShoppingCart className="h-4 w-4" />
                     اطلب الآن
-                  </Button>
-                  <Button
-                    variant="outline"
-                    size="icon"
-                    onClick={() => setSelectedProduct(product)}
-                  >
-                    <Eye className="h-4 w-4" />
                   </Button>
                 </CardFooter>
               </Card>

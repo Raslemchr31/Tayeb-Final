@@ -67,7 +67,9 @@ export function Contact() {
                   <h3 className="text-xl font-tajawal font-bold text-gray-800 mb-2">
                     {method.title}
                   </h3>
-                  <p className="text-gray-600">{method.value}</p>
+                  <p className="text-gray-600" dir={method.icon === Phone ? 'ltr' : 'auto'}>
+                    {method.value}
+                  </p>
                 </CardContent>
               </Card>
             );
